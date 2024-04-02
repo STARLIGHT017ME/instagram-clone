@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:instagramproj/commentsection.dart';
 
 class Forufeeds extends StatelessWidget {
   const Forufeeds({super.key});
@@ -54,86 +55,98 @@ class Forufeeds extends StatelessWidget {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(child: CircularProgressIndicator());
                     } else {
-                      return Container(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        child: Container(
-                          child: Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Image.asset("images/shoe4.jpg"),
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 15, 0, 0),
-                                    child: Row(
+                      return Expanded(
+                        child: ListView.builder(
+                            itemCount: 2,
+                            itemBuilder: (BuildContext context, int index) {
+                              return SizedBox(
+                                height: 500,
+                                child: Column(
+                                  children: [
+                                    Column(
                                       children: [
-                                        Icon(
-                                          Icons.favorite_border,
-                                          size: 25,
+                                        Image.asset("images/user1.jpg"),
+                                        const Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(10, 15, 0, 0),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.favorite_border,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 25,
+                                              ),
+                                              Icon(
+                                                Icons.messenger_outline,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 25,
+                                              ),
+                                              Icon(
+                                                Icons.send_outlined,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 550,
+                                              ),
+                                              Icon(
+                                                Icons.bookmark_border,
+                                                size: 30,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        SizedBox(
-                                          width: 25,
+                                        const Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Padding(
+                                            padding: EdgeInsets.only(left: 7),
+                                            child: Text("17,383 likes"),
+                                          ),
                                         ),
-                                        Icon(
-                                          Icons.messenger_outline,
-                                          size: 25,
-                                        ),
-                                        SizedBox(
-                                          width: 25,
-                                        ),
-                                        Icon(
-                                          Icons.send_outlined,
-                                          size: 25,
-                                        ),
-                                        SizedBox(
-                                          width: 550,
-                                        ),
-                                        Icon(
-                                          Icons.bookmark_border,
-                                          size: 30,
-                                        ),
+                                        const Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Padding(
+                                              padding: EdgeInsets.only(left: 7),
+                                              child: Text("Bios"),
+                                            )),
                                       ],
                                     ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 7),
-                                      child: Text("17,383 likes"),
+                                    const Commentsection(),
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 6.0),
+                                      child: TextField(
+                                        keyboardAppearance: Brightness.dark,
+                                        style: TextStyle(color: Colors.white),
+                                        decoration: InputDecoration(
+                                          icon: CircleAvatar(
+                                            backgroundImage: AssetImage(
+                                              "images/shoe3.jpg",
+                                            ),
+                                            radius: 16,
+                                          ),
+                                          disabledBorder: InputBorder.none,
+                                          focusedBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                style: BorderStyle.none),
+                                          ),
+                                          enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                            ),
+                                          ),
+                                          hintText: "Add comments....",
+                                          hintStyle: TextStyle(fontSize: 13),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 7),
-                                        child: Text("Bios"),
-                                      )),
-                                  GestureDetector(
-                                    child: Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 7),
-                                          child: Text("view all 2355"),
-                                        )),
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return SizedBox(
-                                              // height: 500,
-                                              width: 500,
-                                              child: Container(
-                                                color: Colors.black26,
-                                              ),
-                                            );
-                                          });
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
+                                  ],
+                                ),
+                              );
+                            }),
                       );
                     }
                   }),

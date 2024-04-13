@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Commentsection extends StatelessWidget {
@@ -18,14 +20,25 @@ class Commentsection extends StatelessWidget {
       ),
       onTap: () {
         showModalBottomSheet(
-            backgroundColor: Colors.red,
+            backgroundColor: const Color.fromARGB(255, 7, 7, 7),
+            isScrollControlled: true,
             context: context,
-            builder: (BuildContext context) {
-              return Container(
-                width: double.infinity,
-                height: double.infinity,
+            builder: (context) {
+              double screenWidth = MediaQuery.of(context).size.width;
+
+              return SizedBox(
+                height: 850,
+                width: screenWidth * 5.8,
                 child: Column(
-                  children: [Text("Hello")],
+                  children: [
+                    Text(
+                      "HEIGHT: " +
+                          MediaQuery.of(context).size.height.toString(),
+                    ),
+                    Text(
+                      "Width: " + MediaQuery.of(context).size.width.toString(),
+                    ),
+                  ],
                 ),
               );
             });

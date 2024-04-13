@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:instagramproj/Logins/createnewaccount/signupwithemailadd.dart';
+import 'package:instagramproj/Logins/createnewaccount/signupwithmobno.dart';
+import 'package:instagramproj/Logins/forgottenpassword.dart';
+import 'package:instagramproj/Logins/loginpage.dart';
+import 'package:instagramproj/Userdetails/userdetails.dart';
 import 'package:instagramproj/foryou.dart';
-
-
-
-
-
+import 'package:instagramproj/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      darkTheme: ThemeData.dark(),
       theme: ThemeData(
+        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.white),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.black, primary: Color.fromARGB(255, 20, 20, 20)),
         textTheme: const TextTheme(
           titleSmall: TextStyle(fontSize: 17, color: Colors.white),
         ),
@@ -26,9 +29,10 @@ class MyApp extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
+        useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const Foryoupage(),
+      home:Loginpage(),
     );
   }
 }

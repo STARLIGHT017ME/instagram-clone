@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:instagramproj/foryoufeeds.dart';
+import 'package:instagramproj/Appbarnavigation.dart';
 import 'package:instagramproj/navigationbar.dart';
 import 'package:instagramproj/storyview.dart';
+import 'package:instagramproj/userpagesview.dart';
 
 class Foryoupage extends StatelessWidget {
   const Foryoupage({super.key});
@@ -12,7 +10,79 @@ class Foryoupage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+      body: Container(
+        color: Theme.of(context).colorScheme.primary,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 55,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Expanded(
+                      child: Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              right: BorderSide(
+                                color: Colors.white,
+                                width: 0.2,
+                              ),
+                            ),
+                          ),
+                          child: const Center(
+                              child: Padding(
+                            padding: EdgeInsets.fromLTRB(0, 100, 20, 0),
+                            child: Appsidenavigation(),
+                          ))))
+                ],
+              ),
+            ),
+            Expanded(
+              child: SizedBox(
+                width: 735,
+                child: CustomScrollView(
+                  slivers: [
+                    SliverAppBar(
+                      surfaceTintColor: Theme.of(context).colorScheme.primary,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      floating: true,
+                      title: const Row(
+                        children: [
+                          Apptopnavigations(),
+                        ],
+                      ),
+                    ),
+                    SliverToBoxAdapter(
+                      child: Container(
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.white,
+                                width: 0.2,
+                              ),
+                            ),
+                          ),
+                          child: const Storyview()),
+                    ),
+                    SliverList.builder(
+                      itemCount: 9,
+                      itemBuilder: (BuildContext context, int index) {
+                        return const Userpageview();
+                      },
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+       /*  body: SafeArea(
       child: Row(
         children: [
           Container(
@@ -25,7 +95,7 @@ class Foryoupage extends StatelessWidget {
               ),
             ),
             width: 65,
-            child: const  Navigationsidebar(),
+            child: const Appsidenavigation(),
           ),
           SizedBox(
             width: 735,
@@ -33,44 +103,8 @@ class Foryoupage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 20, 0, 25),
                 child: Row(
-                  children: [
-                    Text(
-                      "For you",
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                    const SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "Following",
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                    const SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "Favorites",
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                  ],
-                ),
-              ),
-              const Storyview(),
-              Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.white,
-                      width: 0.2,
-                    ),
                   ),
-                ),
-                child: const Forufeeds(),
-              )
-            ]),
           ),
         ],
       ),
-    ));
-  }
-}
+    ) */

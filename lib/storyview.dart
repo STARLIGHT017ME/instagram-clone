@@ -36,7 +36,7 @@ class Storyview extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                               fit: BoxFit.fitHeight,
-                              image: AssetImage("images/shoe4.jpg"))),
+                              image: AssetImage("images/user1.jpg"))),
                     ),
                   ),
                 ),

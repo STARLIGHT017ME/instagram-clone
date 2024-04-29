@@ -20,7 +20,11 @@ class Forgottenpassword extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.topLeft,
-                  child: Icon(Icons.arrow_back),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/loginpage');
+                      },
+                      child: Icon(Icons.arrow_back)),
                 ),
                 SizedBox(
                   height: 50,
@@ -75,15 +79,18 @@ class Forgottenpassword extends StatelessWidget {
                   style: Colors.white,
                   sidecolor: Colors.transparent,
                   backgroundcolor: Color.fromRGBO(0, 100, 224, 3),
+                  routeName: '',
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Loginbutton(
-                    text: "Log in with Facebook",
-                    style: Colors.white,
-                    sidecolor: Colors.white24,
-                    backgroundcolor: Colors.transparent)
+                  text: "Log in with Facebook",
+                  style: Colors.white,
+                  sidecolor: Colors.white24,
+                  backgroundcolor: Colors.transparent,
+                  routeName: '',
+                )
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:instagramproj/userpost_comments%20&%20bios.dart';
 
 class Userpageview extends StatefulWidget {
@@ -11,11 +12,11 @@ class Userpageview extends StatefulWidget {
 class _UserpageviewState extends State<Userpageview> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 3.0),
-          child: Row(
+    return AspectRatio(
+      aspectRatio: 1,
+      child: Column(
+        children: [
+          Row(
             children: [
               const Padding(
                 padding: EdgeInsets.only(left: 10),
@@ -46,16 +47,22 @@ class _UserpageviewState extends State<Userpageview> {
                           color: Theme.of(context).iconTheme.color)),
                 ],
               ),
-              const SizedBox(
-                width: 590,
+              Spacer(
+                flex: 2,
               ),
               const Icon(Icons.more_vert_outlined),
             ],
           ),
-        ),
-        const Image(image: AssetImage("images/shoe2.jpg")),
-        const Userpost(),
-      ],
+          Expanded(
+              flex: 4,
+              child: Image.asset(
+                fit: BoxFit.fitWidth,
+                "images/shoe6.jpg",
+                width: double.infinity,
+              )),
+          const Userpost(),
+        ],
+      ),
     );
   }
 }

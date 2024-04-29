@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Suggestions extends StatelessWidget {
-  const Suggestions({super.key});
+class Discovermorepeople extends StatelessWidget {
+  const Discovermorepeople({super.key});
 
   @override
   Widget build(BuildContext context) {

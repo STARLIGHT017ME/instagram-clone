@@ -25,9 +25,12 @@ class _SignupmobilenumberState extends State<Signupmobilenumber> {
               children: [
                 Align(
                   alignment: Alignment.topLeft,
-                  child: GestureDetector( 
-                    onTap: (){},
-                    child: Icon(Icons.arrow_back)),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/loginpage');
+                        print("hello");
+                      },
+                      child: Icon(Icons.arrow_back)),
                 ),
                 SizedBox(
                   height: 10,
@@ -75,15 +78,18 @@ class _SignupmobilenumberState extends State<Signupmobilenumber> {
                   style: Colors.white,
                   sidecolor: Colors.transparent,
                   backgroundcolor: Color.fromRGBO(0, 100, 224, 3),
+                  routeName: '',
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Loginbutton(
-                    text: "Sign up with email address",
-                    style: Colors.white,
-                    sidecolor: Colors.white24,
-                    backgroundcolor: Colors.transparent)
+                  text: "Sign up with email address",
+                  style: Colors.white,
+                  sidecolor: Colors.white24,
+                  backgroundcolor: Colors.transparent,
+                  routeName: '/signupwith_email',
+                )
               ],
             ),
           ),

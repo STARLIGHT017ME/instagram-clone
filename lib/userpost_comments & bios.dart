@@ -11,7 +11,8 @@ class Userpost extends StatefulWidget {
 class _UserpostState extends State<Userpost> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    
+    return Column(
       children: [
         Column(
           children: [
@@ -37,9 +38,7 @@ class _UserpostState extends State<Userpost> {
                     Icons.send_outlined,
                     size: 25,
                   ),
-                  SizedBox(
-                    width: 550,
-                  ),
+                  Spacer(),
                   Icon(
                     Icons.bookmark_border,
                     size: 30,
@@ -58,40 +57,43 @@ class _UserpostState extends State<Userpost> {
               ),
             ),
             Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 7),
-                  child: Text(
-                    "Bios",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )),
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 7),
+                child: Text(
+                  "Bios",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
           ],
         ),
         Commentsection(),
-        Padding(
-          padding: EdgeInsets.only(left: 6.0),
-          child: TextField(
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              icon: CircleAvatar(
-                backgroundImage: AssetImage(
-                  "images/shoe3.jpg",
+        Container(
+          child: SizedBox(
+            width: double.infinity,
+            child: TextField(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                icon: CircleAvatar(
+                  backgroundImage: AssetImage(
+                    "images/shoe3.jpg",
+                  ),
+                  radius: 16,
                 ),
-                radius: 16,
-              ),
-              disabledBorder: InputBorder.none,
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                    color: Colors.transparent, style: BorderStyle.none),
-              ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.transparent,
+                disabledBorder: InputBorder.none,
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Colors.transparent, style: BorderStyle.none),
                 ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                  ),
+                ),
+                hintText: "Add comments...",
+                hintStyle: TextStyle(fontSize: 13, color: Colors.white10),
               ),
-              hintText: "Add comments....",
-              hintStyle: TextStyle(fontSize: 13, color: Colors.white10),
             ),
           ),
         ),

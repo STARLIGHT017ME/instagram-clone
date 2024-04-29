@@ -4,8 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:instagramproj/Logins/loginbuttons.dart';
 import 'package:instagramproj/Logins/textfield.dart';
 
-class Signupwithemailaddress extends StatelessWidget {
-  const Signupwithemailaddress({super.key});
+class Signupemailaddress extends StatelessWidget {
+  const Signupemailaddress({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,11 @@ class Signupwithemailaddress extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.topLeft,
-                  child: Icon(Icons.arrow_back),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/loginpage');
+                      },
+                      child: Icon(Icons.arrow_back)),
                 ),
                 SizedBox(
                   height: 10,
@@ -68,15 +72,18 @@ class Signupwithemailaddress extends StatelessWidget {
                   style: Colors.white,
                   sidecolor: Colors.transparent,
                   backgroundcolor: Color.fromRGBO(0, 100, 224, 3),
+                  routeName: '',
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Loginbutton(
-                    text: "Sign up with Mobile Number",
-                    style: Colors.white,
-                    sidecolor: Colors.white24,
-                    backgroundcolor: Colors.transparent)
+                  text: "Sign up with Mobile Number",
+                  style: Colors.white,
+                  sidecolor: Colors.white24,
+                  backgroundcolor: Colors.transparent,
+                  routeName: '/signupwith_mobno',
+                )
               ],
             ),
           ),

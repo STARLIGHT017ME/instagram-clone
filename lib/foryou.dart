@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagramproj/Appbarnavigation.dart';
 import 'package:instagramproj/navigationbar.dart';
-import 'package:instagramproj/storyview.dart';
+import 'package:instagramproj/storyview/storyview.dart';
 import 'package:instagramproj/userpagesview.dart';
 
 class Foryoupage extends StatelessWidget {
@@ -9,7 +9,9 @@ class Foryoupage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         color: Theme.of(context).colorScheme.primary,
         child: Row(
@@ -21,20 +23,23 @@ class Foryoupage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Expanded(
-                      child: Container(
-                          decoration: const BoxDecoration(
-                            border: Border(
-                              right: BorderSide(
-                                color: Colors.white,
-                                width: 0.2,
-                              ),
-                            ),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          right: BorderSide(
+                            color: Colors.white,
+                            width: 0.2,
                           ),
-                          child: const Center(
-                              child: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 100, 20, 0),
-                            child: Appsidenavigation(),
-                          ))))
+                        ),
+                      ),
+                      child: const Center(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(5, 100, 5, 0),
+                          child: Appsidenavigation(),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

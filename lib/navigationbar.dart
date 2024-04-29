@@ -10,111 +10,62 @@ class Appsidenavigation extends StatefulWidget {
 }
 
 class _AppsidenavigationState extends State<Appsidenavigation> {
-  int filter = 0;
-  int filters = 0;
+  int _selectedindex = 0;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 10,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          /* Home */
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                filter = filter;
-              });
-              print("Home button");
-            },
-            child: Icon(
-              Icons.home_outlined,
-              size: 30,
-              color: filter == filter ? Colors.white : Colors.blueGrey,
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        /* Home */
 
-          /* Search  */
-          GestureDetector(
-            onTap: () {
-              print("Search");
-            },
-            child: const Icon(
-              Icons.search,
-              size: 30,
-            ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _selectedindex = 0;
+            });
+            Navigator.pushNamed(context, '/foryoupage');
+          },
+          child: Image.asset(
+            "lib/icons/home (1).png",
+            height: 40,
+            width: 25,
+            color: _selectedindex == 0 ? Colors.blue : Colors.white,
           ),
-          const SizedBox(
-            height: 30,
-          ),
+        ),
 
-          /* Play */
-          GestureDetector(
-            onTap: () {
-              print("Play");
-            },
-            child: const Icon(
-              Icons.play_circle_outline_rounded,
-              size: 30,
-            ),
+        /* SEARCH */
+
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _selectedindex = 1;
+            });
+            Navigator.pushNamed(context, '/search');
+          },
+          child: Image.asset(
+            "lib/icons/search-interface-symbol.png",
+            height: 40,
+            width: 25,
+            color: _selectedindex == 1 ? Colors.blue : Colors.white,
           ),
-          const SizedBox(
-            height: 30,
+        ),
+
+        /* MEDIA */
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _selectedindex = 2;
+            });
+            Navigator.pushNamed(context, '/media');
+          },
+          child: Image.asset(
+            "lib/icons/send.png",
+            height: 60,
+            width: 25,
+            color: _selectedindex == 2 ? Colors.blue : Colors.white,
           ),
-          /* Favorite */
-          GestureDetector(
-            onTap: () {
-              print("Favorite");
-            },
-            child: const Icon(
-              Icons.favorite_border_outlined,
-              size: 30,
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          /* Camera */
-          GestureDetector(
-            onTap: () {
-              print("Camera");
-            },
-            child: const Icon(
-              Icons.camera_alt_outlined,
-              size: 30,
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          /* Messenger */
-          GestureDetector(
-            onTap: () {
-              print("Messanger");
-            },
-            child: const Icon(
-              Icons.messenger_outline,
-              size: 30,
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          GestureDetector(
-            child: const CircleAvatar(
-              backgroundImage: AssetImage("images/user1.jpg"),
-              backgroundColor: Colors.amberAccent,
-              radius: 30,
-            ),
-            onTap: () {
-              print("Click here");
-            },
-          )
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
